@@ -1,0 +1,56 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+	    <li class="first active"><%= link_to "服务器列表", servers_path  %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title">服务器列表</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>  
+	       <th width="5%">编号</th>
+		   <th width="15%">名称</th>
+		   <th width="10%">地址</th>
+		   <th width="8%">用户名</th>
+		   <th width="8%">密码</th>
+		   <th width="10%">磁盘总量</th>
+		   <th width="10%">剩余空间</th>
+		   <th width="5%">状态</th>
+           <th width="5%" class="last">操作</th>
+        </tr>
+			<% @servers.each do |server| %>
+        <tr class="<%= cycle("odd", "even") %>">
+			<td width="5%"><%= server.id %></td>
+			<td width="15%"><%= server.name %></td>
+			<td width="10%"><%= server.ip_address %></td>
+			<td width="8%"><%= server.login_name %></td>
+			<td width="8%"><%= server.password %></td>
+			<td width="10%"><%= server.disk_total %></td>
+			<td width="10%"><%= server.disk_avail %></td>
+			<td width="5%">
+			<% if server.status == 1 %>
+			<%= image_tag '/images/ok.gif' %>
+			<% else %>
+			<%= image_tag '/images/erro.gif' %>
+			<% end %>
+			</td>
+          	<td class="last" width="10%">
+		  		<%= link_to '查看|', server%>
+				<%= link_to '编辑|', edit_server_path(server) %>
+				<%= link_to '删除', server, :confirm => '你确定一定以及肯定?', :method => :delete %>
+          	</td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+		   <%= link_to "新建服务器", new_server_path %>
+        </div>
+		<div class="pagination">
+			<%= will_paginate(@servers) %>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>

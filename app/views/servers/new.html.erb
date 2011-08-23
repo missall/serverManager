@@ -1,0 +1,16 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "服务器列表", servers_path  %></li>
+      <li class="active"><%= link_to "添加服务器", new_server_path %></li>
+    </ul>
+  </div>          
+  <div class="content">            
+    <h2 class="title">添加服务器</h2>
+    <div class="inner">
+      <% form_for :server, :url => servers_path, :html => { :class => :form } do |f| -%>
+        <%= render :partial => "form", :locals => {:f => f} %>
+      <% end -%>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "服务器列表", servers_path  %></li>
+      <li><%= link_to "添加服务器", new_server_path %></li>
+      <li class="active"><%= link_to "查看", server_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+			<div align="left" style="width:800px; hight: 500px;">
+				<p id="notice"><%= notice %></p>
+				<table>
+				<tr>
+					<td>
+			  		<%= image_tag @chart %>
+					</td>
+					<td >
+					<p><font color="black">服务器运行快照</font></p>
+					<p><font color="black"><%=@lines[0]%></font></p>
+					<p><font color="black"><%=@lines[1]%></font></p>
+					<p><font color="black"><%=@lines[2]%></font></p>
+					<p><font color="black"><%=@lines[3]%></font></p>
+					<p><font color="black"><%=@lines[4]%></font></p>
+					</td>
+				</tr>
+			</table> 
+			</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<%= form_for(@server) do |f| %>
+  <% if @server.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@server.errors.count, "error") %> prohibited this server from being saved:</h2>
+
+      <ul>
+      <% @server.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="group">
+    <%= f.label :服务器名称 %><br />
+    <%= f.text_field :name %>
+		<span class="description">Ex: vod-1</span>
+  </div>
+  <div class="group">
+    <%= f.label :服务器IP地址 %><br />
+    <%= f.text_field :ip_address %>
+		<span class="description">Ex: 58.196.13.xx</span>
+  </div>
+  <div class="group">
+    <%= f.label :服务器登陆帐号 %><br />
+    <%= f.text_field :login_name %>
+		<span class="description">Ex: root</span>
+  </div>
+  <div class="group">
+    <%= f.label :服务器登陆密码 %><br />
+    <%= f.text_field :password %>
+		<span class="description">Ex: xxxxx</span>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
