@@ -17,7 +17,7 @@
 		   <th width="10%">磁盘总量</th>
 		   <th width="10%">剩余空间</th>
 		   <th width="5%">状态</th>
-           <th width="5%" class="last">操作</th>
+           <th width="8%" class="last">操作</th>
         </tr>
 			<% @servers.each do |server| %>
         <tr class="<%= cycle("odd", "even") %>">
@@ -28,7 +28,7 @@
 			<td width="8%"><%= server.password %></td>
 			<td width="10%"><%= server.disk_total %></td>
 			<td width="10%"><%= server.disk_avail %></td>
-			<td width="5%">
+			<td width="8%">
 			<% if server.status == 1 %>
 			<%= image_tag '/images/ok.gif' %>
 			<% else %>
