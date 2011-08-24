@@ -13,8 +13,8 @@ role :db,  "58.196.13.123", :primary => true # This is where Rails migrations wi
 
 set :deploy_to, "/var/www/#{application}"
 set :use_sudo,false
-set :user, "www-data"
-#set :password, "123456"
+set :user, "bstar"
+set :password, "123abc!@#"
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
