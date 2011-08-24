@@ -1,0 +1,21 @@
+<div class="block">
+  <div class="secondary-navigation">
+  </div>          
+  <div class="content">            
+    <h2 class="title">用户登陆</h2>
+    <div class="inner">
+		<% form_for @user_session do |f| %>
+		  <%= f.error_messages %>
+		  <p>
+		    <%= f.label :邮箱 %><br />
+		    <%= f.text_field :email %>
+		  </p>
+		  <p>
+		    <%= f.label :密码 %><br />
+		    <%= f.password_field :password %>
+		  </p>
+		  <p><%= f.submit "登陆->" %></p>
+		<% end %>
+    </div>
+  </div>
+</div>

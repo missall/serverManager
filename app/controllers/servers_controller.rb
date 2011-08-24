@@ -2,10 +2,11 @@ require 'net/ssh'
 require 'gchart'
 class ServersController < ApplicationController
   layout 'server'
+  before_filter :auth_current_user
   # GET /servers
   # GET /servers.xml
   def index
-    @servers = Server.paginate(:page => params[:page],:per_page => 10)
+    @servers = Server.paginate(:page => params[:page],:per_page => 10).order('id asc')
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @servers }
@@ -18,6 +19,7 @@ class ServersController < ApplicationController
     @server = Server.find(params[:id])
     ssh = Net::SSH.start(@server.ip_address,@server.login_name,
       :password=> @server.password)
+    @server.status = 1 if ssh
     ssh.exec!("export TERM=xterm-color")
     output = ssh.exec!("df -h /home")
     result = ssh.exec!('top -bn 1')

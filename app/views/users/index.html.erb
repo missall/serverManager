@@ -1,0 +1,47 @@
+<div class="block">
+<div class="secondary-navigation">
+  <ul class="wat-cf">
+	    <li class="first active"><%= link_to "用户列表", servers_path  %></li>
+  </ul>
+</div>
+<div class="content">          
+  <h2 class="title">用户列表</h2>
+  <div class="inner">
+<table class="table">
+  <tr>
+    <th>用户</th>
+    <th>邮箱</th>
+    <th>登陆次数</th>
+    <th>登陆时间</th>
+    <th>登陆地址</th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.login_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.login_count %></td>
+	<td><%= user.last_login_at %></td>
+    <td><%= user.last_login_ip %></td>
+  	<td class="last">
+  		<%= link_to '查看|', user %>
+		<%= link_to '编辑|', edit_user_path(user) %>
+		<%= link_to '删除', user, :confirm => '你确定一定以及肯定?', :method => :delete %>
+  	</td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div class="actions-bar wat-cf">
+  <div class="actions">
+	   <%= link_to "新建用户", new_user_path %>
+  </div>
+	<div class="pagination">
+		<%= will_paginate(@users) %>
+	</div>
+</div>
+</div>
+</div>
+</div>

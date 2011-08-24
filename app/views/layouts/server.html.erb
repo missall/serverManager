@@ -12,14 +12,21 @@
       <h1><a href="/">服务器监控系统</a></h1>
       <div id="user-navigation">
         <ul class="wat-cf">
+	        <% if current_user %>
+			<li class="current_user"><%= current_user.login_name %></li>
             <li><%= link_to "修改密码", servers_path %></li>
-            <li class="logout"><%= link_to "登出", servers_path %></li>
+            <li class="logout"><%= link_to "登出", logout_path %></li>
+			<% else %>
+			<li class="logout"><%= link_to "注册", register_path %></li>
+			<li><%= link_to "", register_path %></li>
+			<li class="logout"><%= link_to "登陆", login_path %></li>
+			<% end %>
         </ul>
       </div>
       <div id="main-navigation">
         <ul class="wat-cf">
-            <li class="first active"><%= link_to "服务器管理", servers_path %></li>
-            <li><%= link_to "服务器组管理", servers_path %></li>
+            <li><%= link_to "服务器管理", servers_path %></li>
+            <li><%= link_to "用户管理", users_path %></li>
         </ul>
       </div>      
     </div>    
@@ -44,7 +51,7 @@
 		   <h3>系统导航</h3>
 		   <ul class="navigation">
 		 		<li><%= link_to "服务器管理", servers_path %></li>
-		<li><%= link_to "服务器组管理", servers_path %></li>
+		<li><%= link_to "用户管理", users_path %></li>
 		 </div>
       </div>
     </div>    

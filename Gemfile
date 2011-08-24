@@ -6,6 +6,7 @@ gem 'net-ssh', '2.2.0'
 gem 'googlecharts', '1.6.7'
 gem 'web-app-theme', '0.7.0'
 gem 'will_paginate', '~>3.0.0'
+gem 'authlogic'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

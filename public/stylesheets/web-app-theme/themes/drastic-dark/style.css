@@ -207,6 +207,10 @@ hr {
     cursor: pointer;
 }
 
+#user-navigation ul li.current_user {
+    color: #FFFFFF;
+}
+
 .secondary-navigation {
   background: #36393d;
   border-bottom-color: #1a1a1a;

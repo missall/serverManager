@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100901104723) do
+ActiveRecord::Schema.define(:version => 20110823121139) do
 
   create_table "servers", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,26 @@ ActiveRecord::Schema.define(:version => 20100901104723) do
     t.string   "login_name"
     t.string   "password"
     t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "disk_total", :limit => 20
+    t.string   "disk_used",  :limit => 20
+    t.string   "disk_avail", :limit => 20
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "login_name"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.integer  "login_count"
+    t.integer  "failed_login_count"
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
