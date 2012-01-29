@@ -4,13 +4,13 @@ class ApplicationController < ActionController::Base
   layout 'server'
   filter_parameter_logging :password
   helper_method :current_user
-  
+
   def auth_current_user
     unless current_user
       flash[:notice] = "你必须登陆后才能访问此页面"
       redirect_to login_path
     else
-      
+
     end
   end
 
