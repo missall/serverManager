@@ -30,13 +30,13 @@ class ServersController < ApplicationController
     @chart = diskspace(output)
     @server.update_attributes(params[:server])
   end
-  
+
   def diskspace(output)
     lines = []
     output.each_line do |line|
       lines << line
     end
-    
+
     line1 = lines[2] == nil ? lines[1].split(' ')[2] : lines[2].split(' ')[1]
     line2 = lines[2] == nil ? lines[1].split(' ')[3] : lines[2].split(' ')[2]
     disk_total = lines[2] == nil ? lines[1].split(' ')[1] : lines[2].split(' ')[0]
@@ -46,15 +46,15 @@ class ServersController < ApplicationController
       num1 = line1.gsub('M',"").to_i
     elsif (line1.include?("G"))
       num1 = line1.gsub('G',"").to_i*1024
-    else 
+    else
       num1 = line1.gsub('T',"").to_i*1024*1024
-    end 
-    
+    end
+
     if (line2.include?("M"))
       num2 = line2.gsub('M',"").to_i
     elsif (line2.include?("G"))
       num2 = line2.gsub('G',"").to_i*1024
-    else 
+    else
       num2 = line2.gsub('T',"").to_i*1024*1024
     end
     @server.disk_total = disk_total
@@ -64,7 +64,7 @@ class ServersController < ApplicationController
     #puts num2 = lines[2].split(' ')[2].include?("G") ? lines[2].split(' ')[2].gsub('G',"").to_i*1024 : lines[2].split(' ')[2].gsub('T',"").to_i*1024*1024
     Gchart.pie_3d(:title => @server.name+" Disk Total:"+ disk_total + " Use:" + used, :size => '600x300',
                   :data => [num1.to_i, num2.to_i], :labels => ["Used:" + line1, "Avail:" + line2],
-                  )    
+                  )
   end
 
   # GET /servers/new
@@ -126,5 +126,5 @@ class ServersController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
 end

@@ -1,5 +1,5 @@
 Given /^a model "([^\"]*)"$/ do |model_name|
-  generate_model(model_name)  
+  generate_model(model_name)
 end
 
 Given /^I generate views for controller "([^\"]*)"$/ do |controller_path|

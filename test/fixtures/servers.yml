@@ -1,13 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: 
-  ip_address: 
-  login_name: 
-  password: 
+  name:
+  ip_address:
+  login_name:
+  password:
 
 two:
-  name: 
-  ip_address: 
-  login_name: 
-  password: 
+  name:
+  ip_address:
+  login_name:
+  password:

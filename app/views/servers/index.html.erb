@@ -3,12 +3,12 @@
     <ul class="wat-cf">
 	    <li class="first active"><%= link_to "服务器列表", servers_path  %></li>
     </ul>
-  </div>          
-  <div class="content">          
+  </div>
+  <div class="content">
     <h2 class="title">服务器列表</h2>
     <div class="inner">
       <table class="table">
-        <tr>  
+        <tr>
 	       <th width="5%">编号</th>
 		   <th width="15%">名称</th>
 		   <th width="10%">地址</th>
@@ -40,7 +40,7 @@
 				<%= link_to '编辑|', edit_server_path(server) %>
 				<%= link_to '删除', server, :confirm => '你确定一定以及肯定?', :method => :delete %>
           	</td>
-        </tr>          
+        </tr>
         <% end -%>
       </table>
       <div class="actions-bar wat-cf">

@@ -3,7 +3,7 @@ Given /^I have a new rails app$/ do
 end
 
 Given /^I have no layouts$/ do
-  remove_layouts  
+  remove_layouts
 end
 
 Given /^I have no stylesheets$/ do
@@ -23,15 +23,15 @@ Given /^I generate a theme choosing the "([^\"]*)" theme$/ do |theme_name|
 end
 
 Then /^I should have a layout named "([^\"]*)"$/ do |filename|
-  layout_exists?(filename).should be_true  
+  layout_exists?(filename).should be_true
 end
 
 Then /^I should have a stylesheet named "([^\"]*)"$/ do |filename|
-  stylesheet_exists?(filename).should be_true    
+  stylesheet_exists?(filename).should be_true
 end
 
 Then /^I should have an image named "([^\"]*)"$/ do |filename|
-  image_exists?(filename).should be_true    
+  image_exists?(filename).should be_true
 end
 
 Given /^I generate a theme without layout choosing the "([^\"]*)" theme$/ do |theme_name|
